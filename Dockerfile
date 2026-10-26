@@ -12,5 +12,5 @@ RUN pip install --no-cache-dir nodriver fastapi uvicorn
 
 ENV CHROME_PATH=/usr/bin/chromium
 
-EXPOSE 8191
-CMD Xvfb :99 -screen 0 1024x768x24 & export DISPLAY=:99 && python service.py
+# 关键：加上了 exec，让 python 变成主进程，容器绝不会轻易退出
+CMD Xvfb :99 -screen 0 1024x768x24 & export DISPLAY=:99 && exec python service.py
