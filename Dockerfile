@@ -3,7 +3,7 @@ FROM python:3.10-slim
 RUN apt-get update && apt-get install -y \
     wget gnupg git unzip xvfb chromium \
     fonts-liberation \
-    libgl1-mesa-dri libglx-mesa0 libgl1-mesa-glx \
+    libgl1 libgl1-mesa-dri libglx-mesa0 \
     --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/ismoiloffS/EzSolver.git /app
